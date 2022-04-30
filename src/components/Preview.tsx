@@ -16,7 +16,7 @@ export default function Preview({ text }: PropsTypes) {
       <div className="dark">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
-          className="prose prose-invert h-[87vh] max-w-none resize-none !overflow-auto bg-transparent p-2 font-RSerif scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-neutral-800 prose-pre:m-4 prose-pre:overflow-auto prose-pre:bg-zinc-800 prose-pre:scrollbar-track-gray-100"
+          className="prose prose-invert h-[87vh] max-w-none resize-none !overflow-auto bg-transparent py-6 px-3 font-RSerif scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-neutral-800  prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-code:rounded prose-code:bg-zinc-800 prose-code:p-1 prose-pre:m-4 prose-pre:overflow-auto prose-pre:bg-zinc-800 prose-pre:scrollbar-track-gray-100"
         >
           {text}
         </ReactMarkdown>

@@ -66,13 +66,13 @@ export default function SignUp() {
   }, [navigate]);
 
   return (
-    <div className="grid h-screen bg-zinc-800 lg:grid-cols-2">
+    <div className="grid h-screen overflow-hidden bg-zinc-800 lg:grid-cols-2">
       <motion.div
         initial={{ x: "50vw" }}
         animate={{ x: 0 }}
         transition={{
           duration: 0.5,
-          x: { type: "spring", stiffness: 50 },
+          x: { type: "spring", stiffness: 100 },
         }}
         className="flex h-full flex-col items-center justify-center space-y-10 bg-zinc-900 bg-cover lg:!bg-none"
         style={{ backgroundImage: `url(${background})` }}
