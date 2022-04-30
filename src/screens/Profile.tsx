@@ -9,6 +9,7 @@ import background from "../assets/backgroundLogin.png";
 import profilePic from "../assets/empty-profile.png";
 import { storage } from "../core/firebaseConfig";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { motion } from "framer-motion";
 
 export default function Profile() {
   const [user, setUser] = useState(auth?.currentUser);
@@ -70,7 +71,13 @@ export default function Profile() {
     <div className="min-h-screen bg-zinc-900">
       <Header />
       <div className="grid place-items-center lg:grid-cols-2">
-        <div
+        <motion.div
+          initial={{ x: "-50vw" }}
+          animate={{ x: 0 }}
+          transition={{
+            duration: 0.4,
+            x: { type: "spring", stiffness: 50 },
+          }}
           style={{ backgroundImage: `url(${background})` }}
           className="flex  w-full justify-center bg-cover"
         >
@@ -107,7 +114,7 @@ export default function Profile() {
                 <input
                   title="change your profile picture"
                   disabled={loadingUploadImage}
-                  className="h-full cursor-pointer opacity-0 "
+                  className="h-full cursor-pointer opacity-0 file:cursor-pointer "
                   type={"file"}
                   multiple={false}
                   accept={"image/*"}
@@ -138,7 +145,7 @@ export default function Profile() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
         <div className="h-[92vh] w-full self-start overflow-auto scrollbar-track-gray-100 scrollbar-thumb-neutral-800 scrollbar-hide md:scrollbar-thin md:scrollbar-default">
           <MarkDownsList
             titles={titles}

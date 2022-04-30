@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-
+import { AnimatePresence } from "framer-motion";
 // screens
 import MarkDownEditor from "./screens/MarkDownEditor";
 import Profile from "./screens/Profile";
@@ -10,7 +10,7 @@ import Settings from "./screens/Settings";
 
 export default function App() {
   return (
-    <div className="App">
+    <AnimatePresence>
       <Routes>
         <Route path="/" element={<MarkDownEditor />} />
         <Route path="/home" element={<MarkDownEditor />} />
@@ -21,6 +21,6 @@ export default function App() {
         <Route path="markdown/:markdownId" element={<MarkDownEditor />} />
         <Route path="*" element={<Error />} />
       </Routes>
-    </div>
+    </AnimatePresence>
   );
 }

@@ -5,6 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useUpdatePassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import { auth } from "../core/firebaseConfig";
+import { motion } from "framer-motion";
 
 type dataType = {
   displayName: string;
@@ -39,11 +40,10 @@ export default function Settings() {
     <div className="min-h-screen bg-zinc-900">
       <Header />
       <div className="grid lg:grid-cols-2">
-        <div
-          className="hidden min-h-[92vh] bg-cover lg:block"
-          style={{ backgroundImage: `url(${background})` }}
-        ></div>
-        <div
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
           style={{ backgroundImage: `url(${background})` }}
           className="flex min-h-[92vh] flex-col items-center justify-center space-y-10 bg-cover lg:!bg-none"
         >
@@ -98,7 +98,17 @@ export default function Settings() {
               </p>
             )}
           </div>
-        </div>
+        </motion.div>
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          transition={{
+            duration: 0.4,
+            x: { type: "spring", stiffness: 50 },
+          }}
+          className="hidden min-h-[92vh] bg-cover lg:block"
+          style={{ backgroundImage: `url(${background})` }}
+        ></motion.div>
       </div>
     </div>
   );

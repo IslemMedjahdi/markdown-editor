@@ -1,7 +1,6 @@
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
 type PropsHeader = {
   clickHandler?: () => void;
   loading?: boolean;

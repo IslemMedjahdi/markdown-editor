@@ -2,6 +2,7 @@ import background from "../assets/backgroundLogin.png";
 import { Link, useNavigate } from "react-router-dom";
 import { SignUpData } from "../types";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import {
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
@@ -66,7 +67,13 @@ export default function SignUp() {
 
   return (
     <div className="grid h-screen bg-zinc-800 lg:grid-cols-2">
-      <div
+      <motion.div
+        initial={{ x: "50vw" }}
+        animate={{ x: 0 }}
+        transition={{
+          duration: 0.5,
+          x: { type: "spring", stiffness: 50 },
+        }}
         className="flex h-full flex-col items-center justify-center space-y-10 bg-zinc-900 bg-cover lg:!bg-none"
         style={{ backgroundImage: `url(${background})` }}
       >
@@ -143,11 +150,18 @@ export default function SignUp() {
             already have an account ?
           </Link>
         </form>
-      </div>
-      <div
+      </motion.div>
+      <motion.div
+        initial={{ x: "50vw" }}
+        animate={{ x: 0 }}
+        transition={{
+          duration: 0.5,
+          delay: 0.2,
+          x: { type: "spring", stiffness: 50 },
+        }}
         className="hidden h-full bg-cover lg:block"
         style={{ backgroundImage: `url(${background})` }}
-      ></div>
+      ></motion.div>
     </div>
   );
 }
