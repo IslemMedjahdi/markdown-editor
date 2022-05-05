@@ -10,6 +10,7 @@ import {
 import { auth, db } from "../core/firebaseConfig";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
+import { Helmet } from "react-helmet";
 export default function SignUp() {
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, , loading, authError] =
@@ -67,6 +68,9 @@ export default function SignUp() {
 
   return (
     <div className="grid h-screen overflow-hidden bg-zinc-800 lg:grid-cols-2">
+      <Helmet>
+        <title>Signup | Markdown Online Editor</title>
+      </Helmet>
       <motion.div
         initial={{ x: "50vw" }}
         animate={{ x: 0 }}

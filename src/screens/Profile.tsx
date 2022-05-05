@@ -10,6 +10,7 @@ import profilePic from "../assets/empty-profile.png";
 import { storage } from "../core/firebaseConfig";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 export default function Profile() {
   const [user, setUser] = useState(auth?.currentUser);
@@ -69,6 +70,9 @@ export default function Profile() {
   };
   return (
     <div className="min-h-screen bg-zinc-900">
+      <Helmet>
+        <title>Profile | Markdown Online Editor</title>
+      </Helmet>
       <Header />
       <div className="grid place-items-center lg:grid-cols-2">
         <motion.div

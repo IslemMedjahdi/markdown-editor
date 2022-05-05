@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { loginData } from "../types";
-import background from "../assets/backgroundLogin.png";
 import { auth } from "../core/firebaseConfig";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import background from "../assets/backgroundLogin.png";
+import { Helmet } from "react-helmet";
 
 export default function Login() {
   const [data, setData] = useState<loginData>({ email: "", password: "" });
@@ -27,6 +28,9 @@ export default function Login() {
   }, [navigate]);
   return (
     <div className="grid h-screen overflow-hidden bg-zinc-800 lg:grid-cols-2">
+      <Helmet>
+        <title>Login | Markdown Online Editor</title>
+      </Helmet>
       <motion.div
         initial={{ x: "-50vw" }}
         animate={{ x: 0 }}

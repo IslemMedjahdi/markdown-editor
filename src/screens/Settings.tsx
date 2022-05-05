@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useUpdatePassword, useUpdateProfile } from "react-firebase-hooks/auth";
 import { auth } from "../core/firebaseConfig";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 type dataType = {
   displayName: string;
@@ -38,6 +39,9 @@ export default function Settings() {
   }, [navigate]);
   return (
     <div className="min-h-screen bg-zinc-900">
+      <Helmet>
+        <title>Settings | Markdown Online Editor</title>
+      </Helmet>
       <Header />
       <div className="grid lg:grid-cols-2">
         <motion.div
